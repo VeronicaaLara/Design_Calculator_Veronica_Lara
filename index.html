@@ -1,190 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Calculadora</title>
+	<title> Calculadora veronica lara </title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel ="stylesheet" href ="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity ="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	
-
 </head>
-<body>
-	<div class="row">
+
+<body onload="init();">
+	<div class="container" >
+		<div class="card">
+			<div class="card-header" style="background: #00CED1">
+				<h4 align="center"> Calculadora </h4>
+				<div class="input-group input-group-sm row">
+ 					 <span class="input-group-addon col-lg-12" id="resultado"></span>
+  				</div>
+			</div>	
+			<div class="card-body">
+				<div class="row">
+					<button id="siete" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #5F9EA0; color: #00CED1"> 7 </button>
+					<button id="ocho" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #5F9EA0; color: #00CED1"> 8 </button>
+					<button id="nueve" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #5F9EA0; color: #00CED1"> 9 </button>
+					<button id="sumar" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #00CED1"> + </button>
+				</div>
+				<div class="row">
+					<button id="cuatro" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #5F9EA0; color: #00CED1"> 4 </button>
+					<button id="cinco" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #5F9EA0; color: #00CED1"> 5 </button>
+					<button id="seis" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #5F9EA0; color: #00CED1"> 6 </button>
+					<button id="restar" type="button" class="btn col-lg-3 col-md-3 col-xs-3"  style="background-color: #00CED1"> - </button>
+				</div>
+				<div class="row">
+					<button id="uno" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #5F9EA0; color: #00CED1"> 1 </button>
+					<button id="dos" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #5F9EA0; color: #00CED1"> 2 </button>
+					<button id="tres" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #5F9EA0; color: #00CED1"> 3 </button>
+					<button id="multiplicar" type="button" class="btn col-lg-3 col-md-3 col-xs-3"  style="background-color: #00CED1"> * </button>
+				</div>
+				<div class="row">
+					<button id="reset" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #00CED1"> CE </button>
+					<button id="cero" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #5F9EA0; color: #00CED1"> 0 </button>
+					<button id="punto" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #00CED1"> . </button>
+					<button id="dividir" type="button" class="btn col-lg-3 col-md-3 col-xs-3"  style="background-color: #00CED1"> / </button>
+				</div>
+				<div class="row">
+					<button id="igual" type="button" class="btn col-lg-12 col-md-12 col-xs-12" style="background-color: #4682B4"> = </button>
+				</div>
+				<div class="row">
+					<button id="parentesis1" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #00CED1"> ( </button>
+					<button id="parentesis2" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color:#00CED1"> ) </button>
+					<button id="potencia" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #00CED1"> x2 </button>
+					<button id="raiz" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #00CED1"> √ </button>
+				</div>
+				<div class="row">
+					<button id="bin" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #7FFFD4"> BIN </button>
+					<button id="dec" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #7FFFD4"> DEC </button>
+					<button id="hex" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #7FFFD4"> HEX </button>
+				</div>
+				<div class="row">
+					<button id="euro" type="button" class="btn col-lg-3 col-md-3 col-xs-3"style="background-color: #87CEEB"> € </button>
+					<button id="libra" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #87CEEB"> £ </button>
+					<button id="dolar" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color: #87CEEB"> $ </button>
+					<button id="dolarm" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color:#87CEEB"> $M </button>
+					<button id="yen" type="button" class="btn col-lg-3 col-md-3 col-xs-3" style="background-color:#87CEEB"> ¥ </button>
+				</div>
+
+
+			</div>
+		</div>
 	</div>
-
-	<div class ="row">
-	<div class ="col-md-4">
-	</div>
-
-	<div class ="col-md-4">
-	<div class ="panel panel-primary">
- 		<div class ="panel-heading"> Calculadora </div>
- 	<div class ="panel-body">
-
- 		<div class ="input-group">
-
- 			<span class ="input-group-addon" id ="opr"></span>
- 			<input type ="text" class = "form-control" id = "tResult" aria-describedby = "basic-addon3">
- 	</div>
-
-	 <br>
-
- 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_7"> 7 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_8"> 8 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_9"> 9 </button>
- 					</div>
-
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-info" id="btn_div"> / </button>
- 					</div>
- 	</div>
-
-
- 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_4"> 4 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_5"> 5 </button>
- 					</div>
-					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_6"> 6 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-info" id="btn_mul"> x </button>
- 					</div>
- 	</div>
-
-
- 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_1"> 1 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_2"> 2 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_3"> 3 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-info" id="btn_sum"> + </button>
- 					</div>
- 	</div>
-
-
- 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_0"> 0 </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-light" id="btn_pun"> . </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-danger" id="btn_ig"> = </button>
- 					</div>
-
- 					<div class="btn-group" role="group">
- 						<button type="button" class="btn btn-info" id="btn_rest"> - </button>
- 					</div>
- 					</div>
- 						<button type="button" class="btn btn-primary btn-lg btn-block" id="btn_c"> CE </button>
-
- 	</div>
-
-
- 	<div class="btn-group btn-group-justified" role="group" aria-label="...">
-
- 					<div class="btn-group" role="group">
-
-						<button type="button" class="btn btn-success" id="btn_rest"> ( </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-success" id="btn_rest"> ) </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-success" id="btn_rest"> x2 </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-success" id="btn_rest"> √ </button>
-					</div>
-	</div>
-
-	<div class="btn-group btn-group-justified" role="group" aria-label="...">
-
-					<div class="btn-group" role="group">
-
-						<button type="button" class="btn btn-success" id="btn_rest"> BIN </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-success" id="btn_rest"> DEC </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-success" id="btn_rest"> HEX </button>
-					</div>
-	</div>
-
-
-
-	<div class="btn-group btn-group-justified" role="group" aria-label="...">
-
-					<div class="btn-group" role="group">
-
-						<button type="button" class="btn btn-danger" id="btn_rest"> € </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger" id="btn_rest"> £ </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger" id="btn_rest"> $ </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger" id="btn_rest"> $M </button>
-					</div>
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger" id="btn_rest"> ¥ </button>
-					</div>
-	</div>
-
-
- 	</div>
-	</div>
-	</div>
-
-	
-	
-
-		
-
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="./funciones.js"></script>
+
 </body>
 </html>
